@@ -1,0 +1,2 @@
+[fuzz] surface=invariant21 iters=5 seed=42 pid=44955
+[fuzz] surface=invariant21 iters=5 crashes=0 contract_violations=140 timeouts=0 elapsed=0.06s

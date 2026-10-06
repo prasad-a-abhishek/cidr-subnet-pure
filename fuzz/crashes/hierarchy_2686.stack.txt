@@ -1,0 +1,13 @@
+surface: hierarchy
+iter: 2686
+exc: AttributeError: 'NoneType' object has no attribute 'prefixlen'
+--- traceback ---
+Traceback (most recent call last):
+  File "/root/projects/cidr-subnet-pure/.worktrees/t_cycle183-adversary-01/fuzz/_common.py", line 56, in with_timeout
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/root/projects/cidr-subnet-pure/.worktrees/t_cycle183-adversary-01/src/cidr_subnet_pure/_hierarchy.py", line 60, in subnets
+    if new_prefixlen < network.prefixlen:
+                       ^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'prefixlen'
+

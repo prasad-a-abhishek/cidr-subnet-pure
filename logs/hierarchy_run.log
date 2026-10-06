@@ -1,0 +1,2 @@
+[fuzz] surface=hierarchy iters=5000 seed=42 pid=45407
+[fuzz] surface=hierarchy iters=5000 crashes=701 contract_violations=0 timeouts=0 elapsed=0.39s

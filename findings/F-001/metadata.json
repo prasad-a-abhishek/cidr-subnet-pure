@@ -1,0 +1,16 @@
+{
+  "id": "F-001",
+  "surface": "hierarchy",
+  "op": "smallest_supernet",
+  "severity": "medium",
+  "minimized_input_path": "findings/F-001/minimized.in",
+  "stacktrace_path": "findings/F-001/stacktrace.txt",
+  "analysis_path": "findings/F-001/analysis.md",
+  "summary": "smallest_supernet([None]) raises AttributeError: 'NoneType' object has no attribute 'version' (Invariant 21 violation; 344/701 hierarchy crashes from cycle_183 fuzz at root frame _hierarchy.py:25)",
+  "root_frame": "src/cidr_subnet_pure/_hierarchy.py:25",
+  "class": "M-001/M-002 (VULN_AUDIT.md cycle_183)",
+  "cwe": ["CWE-754", "CWE-20"],
+  "reproduction_count": 344,
+  "hostile_types_observed": ["NoneType", "int", "bool", "bytes", "float", "list", "dict", "tuple", "object"],
+  "fix_recommendation": "Validate isinstance(n, (IPv4Network, IPv6Network)) after parse_cidr normalization at _hierarchy.py:22-25; raise TypeError with element index + observed type name."
+}

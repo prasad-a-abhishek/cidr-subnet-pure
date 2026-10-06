@@ -1,0 +1,2 @@
+[fuzz] surface=algebra_set iters=5000 seed=42 pid=45406
+[fuzz] surface=algebra_set iters=5000 crashes=0 contract_violations=0 timeouts=0 elapsed=0.53s

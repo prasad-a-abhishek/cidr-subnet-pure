@@ -1,0 +1,16 @@
+{
+  "id": "F-002",
+  "surface": "hierarchy",
+  "op": "subnets",
+  "severity": "medium",
+  "minimized_input_path": "findings/F-002/minimized.in",
+  "stacktrace_path": "findings/F-002/stacktrace.txt",
+  "analysis_path": "findings/F-002/analysis.md",
+  "summary": "subnets([], 24) raises AttributeError: 'list' object has no attribute 'prefixlen' (Invariant 21 violation; 267/701 hierarchy crashes from cycle_183 fuzz at root frame _hierarchy.py:60)",
+  "root_frame": "src/cidr_subnet_pure/_hierarchy.py:60",
+  "class": "M-001 (VULN_AUDIT.md cycle_183, stricter variant — original was TypeError on hostile new_prefixlen; this is AttributeError on hostile network)",
+  "cwe": ["CWE-754", "CWE-20"],
+  "reproduction_count": 267,
+  "hostile_types_observed": ["NoneType", "int", "bool", "bytes", "float", "list", "dict", "tuple", "object"],
+  "fix_recommendation": "Validate isinstance(network, (IPv4Network, IPv6Network)) AND isinstance(new_prefixlen, int) and not bool; raise TypeError with arg name + observed type."
+}

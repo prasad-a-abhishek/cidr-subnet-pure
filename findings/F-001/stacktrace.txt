@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "<string>", line 4, in <module>
+  File "/root/projects/cidr-subnet-pure/.worktrees/t_cycle183-adversary-01/src/cidr_subnet_pure/_hierarchy.py", line 25, in smallest_supernet
+    versions = {n.version for n in nets}
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/projects/cidr-subnet-pure/.worktrees/t_cycle183-adversary-01/src/cidr_subnet_pure/_hierarchy.py", line 25, in <setcomp>
+    versions = {n.version for n in nets}
+                ^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'version'
