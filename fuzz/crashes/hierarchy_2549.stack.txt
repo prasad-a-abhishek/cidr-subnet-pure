@@ -1,0 +1,13 @@
+surface: hierarchy
+iter: 2549
+exc: AttributeError: 'bytes' object has no attribute 'version'
+--- traceback ---
+Traceback (most recent call last):
+  File "/root/projects/cidr-subnet-pure/.worktrees/t_cycle183-adversary-01/fuzz/_common.py", line 56, in with_timeout
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/root/projects/cidr-subnet-pure/.worktrees/t_cycle183-adversary-01/src/cidr_subnet_pure/_hierarchy.py", line 74, in longest_prefix_match
+    if net.version != target.version:
+                      ^^^^^^^^^^^^^^
+AttributeError: 'bytes' object has no attribute 'version'
+
