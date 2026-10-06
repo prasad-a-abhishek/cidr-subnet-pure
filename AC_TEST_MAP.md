@@ -41,4 +41,5 @@ All 10 spec vectors (§5) are covered in `tests/test_vectors.py` plus 5 derived 
 | VEC-12 | (derived) | | `test_vec_12_parse_cidr_ipv6_canonical` |
 | VEC-13 | (derived) | | `test_vec_13_union_ipv6_idempotent` |
 | VEC-14 | (derived) | | `test_vec_14_aggregate_empty` |
-| VEC-15 | rfc-editor.org/rfc/rfc4007.html | §11 | `test_vec_15_parse_cidr_rejects_ipv6_zone` |
+| VEC-15 | rfc-editor.org/rfc/rfc4007.html | §11 | `test_vec_15_parse_cidr_rejects_ipv6_zone` (covers `/64` form) |
+| FIX-1  | spec §11 item 3 (zone IDs rejected regardless of prefix) | `test_vectors.py::test_vec_15b_parse_cidr_rejects_ipv6_zone_no_prefix` (no-prefix form: `fe80::1%eth0`) |

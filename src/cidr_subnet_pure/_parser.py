@@ -16,8 +16,13 @@ def parse_cidr(value):
         raise InvalidCIDR(
             f"invalid CIDR: expected str, got {type(value).__name__}"
         )
+    stripped = value.strip()
+    if "%" in stripped:
+        raise InvalidCIDR(
+            f"invalid CIDR: IPv6 zone identifier not supported: {value!r}"
+        )
     try:
-        net = _ip.ip_network(value.strip(), strict=True)
+        net = _ip.ip_network(stripped, strict=True)
     except (ValueError, TypeError) as exc:
         raise InvalidCIDR(f"invalid CIDR: {value!r}") from exc
     if (

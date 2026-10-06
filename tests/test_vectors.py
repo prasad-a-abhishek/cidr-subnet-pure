@@ -159,7 +159,22 @@ def test_vec_14_aggregate_empty():
 # source_url: https://www.rfc-editor.org/rfc/rfc4007.html
 # source_section: §11 ("Zone Indices")
 def test_vec_15_parse_cidr_rejects_ipv6_zone():
-    """V15: parse_cidr rejects 'fe80::1%eth0' (zone identifiers unsupported)."""
+    """V15: parse_cidr rejects 'fe80::1%eth0/64' (zone identifiers unsupported)."""
     from cidr_subnet_pure._errors import InvalidCIDR
     with pytest.raises(InvalidCIDR):
         parse_cidr("fe80::1%eth0/64")
+
+
+def test_vec_15b_parse_cidr_rejects_ipv6_zone_no_prefix():
+    """V15b: parse_cidr('fe80::1%eth0') (no prefix) raises InvalidCIDR.
+
+    Spec §11 item 3: zone identifiers are rejected regardless of whether
+    a prefix is present. Covers the no-prefix form that V15 does not.
+    """
+    from cidr_subnet_pure._errors import InvalidCIDR
+    with pytest.raises(InvalidCIDR):
+        parse_cidr("fe80::1%eth0")
+    with pytest.raises(InvalidCIDR):
+        parse_cidr("fe80::1%eth0  ")  # whitespace tolerance still applies
+    # Negative control: clean IPv6 without zone ID must still work.
+    assert str(parse_cidr("fe80::1")) == "fe80::1/128"
