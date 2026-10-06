@@ -1,0 +1,2 @@
+[fuzz] surface=parse_core iters=5000 seed=42 pid=45405
+[fuzz] surface=parse_core iters=5000 crashes=0 contract_violations=0 timeouts=0 elapsed=0.25s
