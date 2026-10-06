@@ -1,0 +1,16 @@
+{
+  "id": "F-003",
+  "surface": "hierarchy",
+  "op": "longest_prefix_match",
+  "severity": "medium",
+  "minimized_input_path": "findings/F-003/minimized.in",
+  "stacktrace_path": "findings/F-003/stacktrace.txt",
+  "analysis_path": "findings/F-003/analysis.md",
+  "summary": "longest_prefix_match(False, [(parse_cidr('10.0.0.0/8'), 'v')]) raises AttributeError: 'bool' object has no attribute 'version' (Invariant 21 violation; 90/701 hierarchy crashes from cycle_183 fuzz at root frame _hierarchy.py:74)",
+  "root_frame": "src/cidr_subnet_pure/_hierarchy.py:74",
+  "class": "M-002 (VULN_AUDIT.md cycle_183)",
+  "cwe": ["CWE-754", "CWE-476"],
+  "reproduction_count": 90,
+  "hostile_types_observed": ["NoneType", "int", "bytes", "list", "dict", "tuple", "object", "float", "bool"],
+  "fix_recommendation": "Validate address is str | IPv4Address | IPv6Address; validate net is str | IPv4Network | IPv6Network; raise TypeError with arg name + observed type."
+}
